@@ -1,6 +1,8 @@
 pipeline {
     agent any
-def mvnHome=Maven
+environment { 
+        mvnHome = 'Maven'
+    }
     stages {
         stage('Build') {
             steps {
