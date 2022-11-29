@@ -1,25 +1,23 @@
-pipeline{
-
-agent any
-
+pipeline {
+    agent any
 tools{
-Maven 
+maven 'Maven'
 
 }
-stages{
 
-  stage('CheckOutCode'){
+  stages{
+   
+    stage('CheckOutCode'){
     steps{
-    git branch: 'master', url: 'https://github.com/sushmareddymvsl/hello-world.git'
+    git branch: 'master', credentialsId: 'GitHub', url: 'https://github.com/sushmareddymvsl/hello-world.git'
 	
 	}
   }
-  
-  stage('Build'){
-  steps{
-  sh  "mvn clean install"
-  }
-  }
-
+        stage('Build') {
+            steps {
+            
+                sh 'mvn clean install'
+            }
+        }
     }
 }
