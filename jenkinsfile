@@ -9,12 +9,10 @@ pipeline {
 	}
   }
         stage('Build') {
-            steps {
                agent { docker 'maven:3-alpine' } 
             	  steps {
                    sh 'mvn clean install'
 		   }
-            }
         }
     }
 }
