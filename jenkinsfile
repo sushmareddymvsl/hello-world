@@ -1,9 +1,18 @@
 pipeline {
     agent any
-environment { 
-        mvnHome = 'Maven'
-    }
-    stages {
+tools{
+maven 'Maven'
+
+}
+
+  stages{
+   
+    stage('CheckOutCode'){
+    steps{
+    git branch: 'master', credentialsId: 'GitHub', url: 'https://github.com/sushmareddymvsl/hello-world.git'
+	
+	}
+  }
         stage('Build') {
             steps {
             
