@@ -7,7 +7,7 @@ environment {
         stage('Build') {
             steps {
             
-                sh 'mvnHome/bin/mvn clean install'
+                sh 'mvn clean install'
             }
         }
     }
