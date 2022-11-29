@@ -1,21 +1,25 @@
-pipeline {
-    agent any
-    tools{
+pipeline{
+
+agent any
+
+tools{
 maven 'maven3.8.2'
 
 }
-  stages{
-   
-    stage('CheckOutCode'){
+stages{
+
+  stage('CheckOutCode'){
     steps{
-    git branch: 'master', credentialsId: 'GitHub', url: 'https://github.com/sushmareddymvsl/hello-world.git'
+    git branch: 'master', url: 'https://github.com/sushmareddymvsl/hello-world.git'
 	
 	}
   }
-        stage('Build') { 
-            	  steps {
-                   sh 'mvn clean install'
-		   }
-        }
+  
+  stage('Build'){
+  steps{
+  sh  "mvn clean install"
+  }
+  }
+
     }
 }
