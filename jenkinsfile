@@ -1,21 +1,11 @@
 pipeline {
     agent any
-mvnHome
+def mvnHome=Maven
     stages {
         stage('Build') {
             steps {
             
-                '\sh mvn clean install
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                sh mvnHome/bin/mvn clean install
             }
         }
     }
